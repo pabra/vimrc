@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
 
 " theme
 "Plug 'chriskempson/base16-vim'
@@ -33,15 +34,29 @@ set hlsearch
 set scrolloff=10
 set splitbelow
 set splitright
+set autoread
 set listchars=eol:¬,tab:→·,trail:~,extends:>,precedes:<,space:·
 "set list
 
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufReadPost fugitive://* set bufhidden=delete
 filetype plugin on
 syntax on
 
 " nohighlight
 nnoremap <CR> :noh<CR><CR>
+nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>
+"nnoremap <Leader>w" ciw""<Esc>P
+"nnoremap <Leader>w' ciw''<Esc>P
+"nnoremap <Leader>w` ciw``<Esc>P
+"nnoremap <Leader>w( ciw()<Esc>P
+"nnoremap <Leader>w) ciw()<Esc>P
+"nnoremap <Leader>w[ ciw[]<Esc>P
+"nnoremap <Leader>w] ciw[]<Esc>P
+"nnoremap <Leader>w{ ciw{}<Esc>P
+"nnoremap <Leader>w} ciw{}<Esc>P
+"nnoremap <Leader>w< ciw<><Esc>P
+"nnoremap <Leader>w> ciw<><Esc>P
 
 nmap ,n :NERDTreeFind<CR>
 nmap ,m :NERDTreeToggle<CR>
@@ -53,9 +68,20 @@ let &t_EI = "\<Esc>[2 q"
 
 
 " CtrlP settings
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz,*.tgz
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz,*.tgz,*.pyc
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+
+" sytastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
 
 if &term=~'linux'
     " console on linux
