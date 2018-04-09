@@ -44,7 +44,7 @@ filetype plugin on
 syntax on
 
 " nohighlight
-nnoremap <CR> :noh<CR><CR>
+nnoremap <silent> <CR> :noh<CR><CR>
 nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>
 "nnoremap <Leader>w" ciw""<Esc>P
 "nnoremap <Leader>w' ciw''<Esc>P
