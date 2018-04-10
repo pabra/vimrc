@@ -15,6 +15,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'thinca/vim-localrc'
+Plug 'SirVer/ultisnips'
 
 " theme
 "Plug 'chriskempson/base16-vim'
@@ -81,6 +82,11 @@ set statusline+=%*
 " nerdtree
 let g:NERDTreeShowHidden = 1
 
+" UltiSnips
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsEditSplit = 'vertical'
+
+" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
