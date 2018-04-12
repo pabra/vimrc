@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'thinca/vim-localrc'
 Plug 'SirVer/ultisnips'
+Plug 'plasticboy/vim-markdown'
 
 " theme
 "Plug 'chriskempson/base16-vim'
@@ -68,6 +69,8 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
 
 " CtrlP settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz,*.tgz,*.pyc
