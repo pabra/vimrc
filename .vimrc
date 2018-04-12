@@ -5,6 +5,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+if empty(glob('~/.vim/UltiSnips'))
+    silent !ln -sf $(dirname $(readlink ~/.vimrc))/UltiSnips ~/.vim/UltiSnips
+endif
+
 call plug#begin()
 
 Plug 'ctrlpvim/ctrlp.vim'
