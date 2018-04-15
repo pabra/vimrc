@@ -38,6 +38,7 @@ set softtabstop=4
 set expandtab
 set cursorline
 set hlsearch
+set incsearch
 set scrolloff=10
 set splitbelow
 set splitright
@@ -50,8 +51,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 filetype plugin on
 syntax on
 
-" nohighlight
-nnoremap <silent> <CR> :noh<CR><CR>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>
 "nnoremap <Leader>w" ciw""<Esc>P
 "nnoremap <Leader>w' ciw''<Esc>P
