@@ -1,3 +1,6 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 " auto install vim-plug (if required)
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -13,6 +16,8 @@ call plug#begin()
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
@@ -23,9 +28,10 @@ Plug 'SirVer/ultisnips'
 Plug 'plasticboy/vim-markdown'
 
 " theme
-"Plug 'chriskempson/base16-vim'
-"Plug 'vim-scripts/dante.vim'
-Plug 'ayu-theme/ayu-vim'
+" Plug 'chriskempson/base16-vim'
+" Plug 'vim-scripts/dante.vim'
+" Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -43,8 +49,17 @@ set scrolloff=10
 set splitbelow
 set splitright
 set autoread
-set listchars=eol:¬,tab:→·,trail:~,extends:>,precedes:<,space:·
-"set list
+if exists('&emoji')
+    set noemoji
+endif
+" set showbreak='↪\ '
+let &showbreak="\u21aa "
+" set listchars=eol:¬,tab:→\ ,trail:~,extends:>,precedes:<,space:·,nbsp:•
+set listchars=eol:¬,tab:→\ ,trail:~,extends:>,precedes:<,nbsp:•
+if has("patch-7.4.710")
+    set listchars+=space:·
+endif
+" set list
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -53,24 +68,15 @@ syntax on
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>
-"nnoremap <Leader>w" ciw""<Esc>P
-"nnoremap <Leader>w' ciw''<Esc>P
-"nnoremap <Leader>w` ciw``<Esc>P
-"nnoremap <Leader>w( ciw()<Esc>P
-"nnoremap <Leader>w) ciw()<Esc>P
-"nnoremap <Leader>w[ ciw[]<Esc>P
-"nnoremap <Leader>w] ciw[]<Esc>P
-"nnoremap <Leader>w{ ciw{}<Esc>P
-"nnoremap <Leader>w} ciw{}<Esc>P
-"nnoremap <Leader>w< ciw<><Esc>P
-"nnoremap <Leader>w> ciw<><Esc>P
 
 nmap ,n :NERDTreeFind<CR>
 nmap ,m :NERDTreeToggle<CR>
 
 " slim cursor in insert mode
 let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
+if exists('&t_SR')
+    let &t_SR = "\<Esc>[4 q"
+endif
 let &t_EI = "\<Esc>[2 q"
 
 " vim-markdown
@@ -100,15 +106,26 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
 
+set background=dark
+
 if &term=~'linux'
     " console on linux
+    colorscheme slate
+    set nolist
 elseif &term=~'xterm'
     " terminal running under X
-    set background=dark
-    set termguicolors
-    "colorscheme dante
-    let ayucolor="dark"
-    colorscheme ayu
+    if exists('&termguicolors')
+        set termguicolors
+    endif
+    " colorscheme dante
+    " let ayucolor="dark"
+    " colorscheme ayu
+    " enable italic font
+    let &t_ZH="\e[3m"
+    let &t_ZR="\e[23m"
+    let g:gruvbox_contrast_dark = 'hard'
+    let g:gruvbox_italic = 1
+    colorscheme gruvbox
 endif
 
 highlight ExtraWhitespace ctermbg=red guibg=red
