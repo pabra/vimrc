@@ -94,6 +94,7 @@ set statusline+=%*
 
 " nerdtree
 let g:NERDTreeShowHidden = 1
+let NERDTreeIgnore = ['\.pyc$']
 
 " UltiSnips
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
