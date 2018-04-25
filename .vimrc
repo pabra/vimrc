@@ -45,6 +45,7 @@ set expandtab
 set cursorline
 set hlsearch
 set incsearch
+set showcmd
 set scrolloff=10
 set splitbelow
 set splitright
@@ -66,11 +67,13 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 filetype plugin on
 syntax on
 
+let mapleader = " "
+
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>
 
-nmap ,n :NERDTreeFind<CR>
-nmap ,m :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeFind<CR>
+nmap <leader>m :NERDTreeToggle<CR>
 
 " slim cursor in insert mode
 let &t_SI = "\<Esc>[6 q"
