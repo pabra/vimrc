@@ -57,6 +57,7 @@ set cursorline
 set hlsearch
 set incsearch
 set showcmd
+set hidden
 set scrolloff=10
 set splitbelow
 set splitright
