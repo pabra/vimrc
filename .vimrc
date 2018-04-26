@@ -23,7 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
-Plug 'thinca/vim-localrc'
+Plug 'embear/vim-localvimrc'
 Plug 'SirVer/ultisnips'
 Plug 'plasticboy/vim-markdown'
 Plug 'nelstrom/vim-visual-star-search'
@@ -35,6 +35,16 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
+
+function! AppendFileType()
+    if has_key(g:fileTypeAppends, &filetype)
+        if g:fileTypeAppends[&filetype] == 'python3'
+            set filetype=python.python3
+        elseif g:fileTypeAppends[&filetype] == 'python2'
+            set filetype=python.python2
+        endif
+    endif
+endfunction
 
 set number relativenumber
 set nowrap
@@ -62,9 +72,11 @@ if has("patch-7.4.710")
     set listchars+=space:·
 endif
 " set list
+let g:fileTypeAppends = { 'python': 'python3', }
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufReadPost fugitive://* set bufhidden=delete
+autocmd BufReadPost * :call AppendFileType()
 filetype plugin on
 syntax on
 
@@ -82,6 +94,10 @@ if exists('&t_SR')
     let &t_SR = "\<Esc>[4 q"
 endif
 let &t_EI = "\<Esc>[2 q"
+
+" localvimrc
+let g:localvimrc_name = [ '.lvimrc', '.local.vimrc', '.local.gitignore.vimrc' ]
+let g:localvimrc_persistent = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
