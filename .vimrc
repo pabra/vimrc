@@ -26,6 +26,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'thinca/vim-localrc'
 Plug 'SirVer/ultisnips'
 Plug 'plasticboy/vim-markdown'
+Plug 'nelstrom/vim-visual-star-search'
 
 " theme
 " Plug 'chriskempson/base16-vim'
