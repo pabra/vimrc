@@ -85,9 +85,18 @@ let mapleader = " "
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>
+nnoremap <silent> <leader>h :10winc <<CR>
+nnoremap <silent> <leader>l :10winc ><CR>
+nnoremap <silent> <leader>j :10winc +<CR>
+nnoremap <silent> <leader>k :10winc -<CR>
 
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
+
+" git gutter
+nmap ghp <Plug>GitGutterPreviewHunk
+nmap ghs <Plug>GitGutterStageHunk
+nmap ghu <Plug>GitGutterUndoHunk
 
 " slim cursor in insert mode
 let &t_SI = "\<Esc>[6 q"
