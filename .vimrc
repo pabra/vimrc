@@ -74,6 +74,7 @@ set scrolloff=10
 set splitbelow
 set splitright
 set autoread
+set wildmode=longest,list
 if exists('&emoji')
     set noemoji
 endif
