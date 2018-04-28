@@ -36,6 +36,13 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
+function! PullVimrc()
+    !git --git-dir=$(dirname $(readlink ~/.vimrc))/.git --work-tree=$(dirname $(readlink ~/.vimrc)) pull
+    source $MYVIMRC
+    PlugClean
+    PlugUpdate
+endfunction
+
 function! AppendFileType()
     if has_key(g:fileTypeAppends, &filetype)
         if g:fileTypeAppends[&filetype] == 'python3'
@@ -89,6 +96,7 @@ nnoremap <silent> <leader>h :10winc <<CR>
 nnoremap <silent> <leader>l :10winc ><CR>
 nnoremap <silent> <leader>j :10winc +<CR>
 nnoremap <silent> <leader>k :10winc -<CR>
+nnoremap <leader>p :call PullVimrc()<CR>
 
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
