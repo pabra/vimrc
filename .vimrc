@@ -26,7 +26,12 @@ Plug 'vim-syntastic/syntastic'
 Plug 'embear/vim-localvimrc'
 Plug 'SirVer/ultisnips'
 Plug 'plasticboy/vim-markdown'
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'digitaltoad/vim-pug'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'editorconfig/editorconfig-vim'
 
 " theme
 " Plug 'chriskempson/base16-vim'
@@ -81,6 +86,8 @@ if has("patch-7.4.710")
 endif
 " set list
 let g:fileTypeAppends = { 'python': 'python3', }
+let g:vue_disable_pre_processors=1
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -91,7 +98,7 @@ syntax on
 let mapleader = " "
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>
+nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>:SyntasticToggleMode<CR>
 nnoremap <silent> <leader>h :10winc <<CR>
 nnoremap <silent> <leader>l :10winc ><CR>
 nnoremap <silent> <leader>j :10winc +<CR>
