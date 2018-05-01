@@ -105,6 +105,7 @@ nnoremap <silent> <leader>l :10winc ><CR>
 nnoremap <silent> <leader>j :10winc +<CR>
 nnoremap <silent> <leader>k :10winc -<CR>
 nnoremap <leader>p :call PullVimrc()<CR>
+inoremap <silent> jk <Esc>
 
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
