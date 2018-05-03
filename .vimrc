@@ -50,11 +50,7 @@ endfunction
 
 function! AppendFileType()
     if has_key(g:fileTypeAppends, &filetype)
-        if g:fileTypeAppends[&filetype] == 'python3'
-            set filetype=python.python3
-        elseif g:fileTypeAppends[&filetype] == 'python2'
-            set filetype=python.python2
-        endif
+        exe 'set filetype=' . &filetype . '.' . substitute(g:fileTypeAppends[&filetype], '[^a-zA-Z0-9\_-]\+', '', 'g')
     endif
 endfunction
 
