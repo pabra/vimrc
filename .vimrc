@@ -94,6 +94,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost * :call AppendFileType()
+autocmd QuickFixCmdPost *grep* cwindow
 filetype plugin on
 syntax on
 
