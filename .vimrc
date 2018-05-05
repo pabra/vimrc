@@ -30,7 +30,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
 
 " filetypes
-Plug 'nginx/nginx'
+Plug 'chr4/nginx.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
 Plug 'cakebaker/scss-syntax.vim'
@@ -47,6 +47,7 @@ call plug#end()
 function! PullVimrc()
     !git --git-dir=$(dirname $(readlink -f ~/.vimrc))/.git --work-tree=$(dirname $(readlink -f ~/.vimrc)) pull
     source $MYVIMRC
+    PlugUpgrade
     PlugClean
     PlugUpdate
 endfunction
