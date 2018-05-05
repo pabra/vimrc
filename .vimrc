@@ -25,13 +25,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'embear/vim-localvimrc'
 Plug 'SirVer/ultisnips'
-Plug 'plasticboy/vim-markdown'
-Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'digitaltoad/vim-pug'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
+
+" filetypes
+Plug 'nginx/nginx'
+Plug 'plasticboy/vim-markdown'
+Plug 'digitaltoad/vim-pug'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
 
 " theme
 " Plug 'chriskempson/base16-vim'
