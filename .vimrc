@@ -22,6 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'embear/vim-localvimrc'
 Plug 'SirVer/ultisnips'
@@ -144,6 +145,12 @@ set statusline+=%*
 " nerdtree
 let g:NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\.pyc$']
+
+" nerd commenter
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDDefaultAlign = 'left'
 
 " UltiSnips
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
