@@ -29,6 +29,8 @@ Plug 'SirVer/ultisnips'
 Plug 'pangloss/vim-javascript'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'terryma/vim-expand-region'
+Plug 'matze/vim-move'
 
 " filetypes
 Plug 'chr4/nginx.vim'
@@ -112,6 +114,9 @@ inoremap <silent> jk <Esc>
 
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
+
+" vim move
+let g:move_key_modifier = 'C'
 
 " git gutter
 nmap ghp <Plug>GitGutterPreviewHunk
