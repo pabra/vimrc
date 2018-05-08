@@ -110,8 +110,14 @@ nnoremap <silent> <leader>h :10winc <<CR>
 nnoremap <silent> <leader>l :10winc ><CR>
 nnoremap <silent> <leader>j :10winc +<CR>
 nnoremap <silent> <leader>k :10winc -<CR>
+nnoremap <silent> <leader>dg :diffget<CR>
+nnoremap <silent> <leader>dp :diffput<CR>
 nnoremap <leader>p :call PullVimrc()<CR>
-inoremap <silent> jk <Esc>
+
+inoremap <silent>jk <Esc>
+
+vnoremap <silent>dg :'<,'>diffget<CR>
+vnoremap <silent>dp :'<,'>diffput<CR>
 
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
