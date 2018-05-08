@@ -38,6 +38,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'posva/vim-vue'
+Plug 'tpope/vim-git'
 
 " theme
 " Plug 'chriskempson/base16-vim'
