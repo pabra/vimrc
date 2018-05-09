@@ -148,6 +148,7 @@ let g:vim_markdown_folding_disabled = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz,*.tgz,*.pyc
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " sytastic
 set statusline+=%#warningmsg#
