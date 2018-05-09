@@ -31,6 +31,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'matze/vim-move'
+Plug 'henrik/vim-indexed-search'
 
 " filetypes
 Plug 'chr4/nginx.vim'
