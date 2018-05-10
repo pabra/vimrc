@@ -135,13 +135,6 @@ nmap ghp <Plug>GitGutterPreviewHunk
 nmap ghs <Plug>GitGutterStageHunk
 nmap ghu <Plug>GitGutterUndoHunk
 
-" slim cursor in insert mode
-let &t_SI = "\<Esc>[6 q"
-if exists('&t_SR')
-    let &t_SR = "\<Esc>[4 q"
-endif
-let &t_EI = "\<Esc>[2 q"
-
 " localvimrc
 let g:localvimrc_name = [ '.lvimrc', '.local.vimrc', '.local.gitignore.vimrc' ]
 let g:localvimrc_persistent = 1
@@ -192,6 +185,12 @@ elseif &term=~'xterm'
     if exists('&termguicolors')
         set termguicolors
     endif
+    " slim cursor in insert mode
+    let &t_SI = "\<Esc>[6 q"
+    if exists('&t_SR')
+        let &t_SR = "\<Esc>[4 q"
+    endif
+    let &t_EI = "\<Esc>[2 q"
     " colorscheme dante
     " let ayucolor="dark"
     " colorscheme ayu
