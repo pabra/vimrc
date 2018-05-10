@@ -123,6 +123,10 @@ vnoremap <silent>dp :'<,'>diffput<CR>
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 
+" status line
+set laststatus=2
+set noshowmode
+
 " vim move
 let g:move_key_modifier = 'C'
 
