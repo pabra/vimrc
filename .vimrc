@@ -7,6 +7,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+" new line
 
 if empty(glob('~/.vim/UltiSnips'))
     silent !ln -sf $(dirname $(readlink ~/.vimrc))/UltiSnips ~/.vim/UltiSnips
@@ -117,8 +118,8 @@ nnoremap <leader>p :call PullVimrc()<CR>
 
 inoremap <silent>jk <Esc>
 
-vnoremap <silent>dg :'<,'>diffget<CR>
-vnoremap <silent>dp :'<,'>diffput<CR>
+vnoremap <silent> <leader>dg :'<,'>diffget<CR>
+vnoremap <silent> <leader>dp :'<,'>diffput<CR>
 
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
