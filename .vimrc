@@ -123,6 +123,11 @@ vnoremap <silent>dp :'<,'>diffput<CR>
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 
+" indexed-search
+let g:indexed_search_line_info = 1
+let g:indexed_search_shortmess = 1
+let g:indexed_search_numbered_only = 1
+
 " status line
 set laststatus=2
 set noshowmode
