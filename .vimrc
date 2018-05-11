@@ -121,6 +121,9 @@ inoremap <silent>jk <Esc>
 vnoremap <silent> <leader>dg :'<,'>diffget<CR>
 vnoremap <silent> <leader>dp :'<,'>diffput<CR>
 
+" map %% in command mode to be expanded to the path of current buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 
