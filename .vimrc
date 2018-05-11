@@ -27,11 +27,11 @@ Plug 'vim-syntastic/syntastic'
 Plug 'embear/vim-localvimrc'
 Plug 'SirVer/ultisnips'
 Plug 'pangloss/vim-javascript'
+Plug 'henrik/vim-indexed-search'        " needs to be before visual strat search
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'matze/vim-move'
-Plug 'henrik/vim-indexed-search'
 
 " filetypes
 Plug 'chr4/nginx.vim'
