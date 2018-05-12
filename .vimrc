@@ -120,6 +120,8 @@ inoremap <silent>jk <Esc>
 
 vnoremap <silent> <leader>dg :'<,'>diffget<CR>
 vnoremap <silent> <leader>dp :'<,'>diffput<CR>
+vnoremap <silent>> >gv
+vnoremap <silent>< <gv
 
 " map %% in command mode to be expanded to the path of current buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
