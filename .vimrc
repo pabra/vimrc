@@ -33,6 +33,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'matze/vim-move'
+Plug 'majutsushi/tagbar'
 
 " filetypes
 Plug 'chr4/nginx.vim'
@@ -128,6 +129,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
+nmap <leader>t :TagbarToggle<CR>
 
 " indexed-search
 let g:indexed_search_line_info = 1
