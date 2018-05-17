@@ -26,6 +26,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'embear/vim-localvimrc'
+Plug 'ervandew/supertab'
+Plug 'valloric/youcompleteme'
 Plug 'SirVer/ultisnips'
 Plug 'pangloss/vim-javascript'
 Plug 'henrik/vim-indexed-search'        " needs to be before visual strat search
@@ -34,6 +36,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'matze/vim-move'
 Plug 'majutsushi/tagbar'
+Plug 'tmhedberg/simpylfold'
 
 " filetypes
 Plug 'chr4/nginx.vim'
@@ -82,6 +85,8 @@ set history=2000
 set splitbelow
 set splitright
 set autoread
+set spell
+set spelllang=en_us
 set wildmode=longest,list
 if exists('&emoji')
     set noemoji
@@ -109,6 +114,7 @@ let mapleader = " "
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>:SyntasticToggleMode<CR>
+nnoremap <silent> <leader>s :set spell!<CR>
 nnoremap <silent> <leader>h :10winc <<CR>
 nnoremap <silent> <leader>l :10winc ><CR>
 nnoremap <silent> <leader>j :10winc +<CR>
@@ -135,6 +141,9 @@ nmap <leader>t :TagbarToggle<CR>
 let g:indexed_search_line_info = 1
 let g:indexed_search_shortmess = 1
 let g:indexed_search_numbered_only = 1
+
+" simplyfold
+let g:SimpylFold_fold_docstring = 0
 
 " status line
 set laststatus=2
@@ -187,6 +196,16 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 set background=dark
 
 if &term=~'linux'
@@ -211,6 +230,7 @@ elseif &term=~'xterm'
     let &t_ZH="\e[3m"
     let &t_ZR="\e[23m"
     let g:gruvbox_contrast_dark = 'hard'
+    let g:gruvbox_guisp_fallback='bg'
     let g:gruvbox_italic = 1
     colorscheme gruvbox
 endif
