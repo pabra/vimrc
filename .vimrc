@@ -137,6 +137,14 @@ nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 nmap <leader>t :TagbarToggle<CR>
 
+" better previous/next mappings
+nmap ö [
+nmap ä ]
+omap ö [
+omap ä ]
+xmap ö [
+xmap ä ]
+
 " indexed-search
 let g:indexed_search_line_info = 1
 let g:indexed_search_shortmess = 1
