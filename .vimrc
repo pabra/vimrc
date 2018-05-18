@@ -15,6 +15,7 @@ endif
 
 call plug#begin()
 
+Plug 'embear/vim-localvimrc'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -25,7 +26,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
-Plug 'embear/vim-localvimrc'
 Plug 'ervandew/supertab'
 Plug 'valloric/youcompleteme'
 Plug 'SirVer/ultisnips'
@@ -85,7 +85,7 @@ set history=2000
 set splitbelow
 set splitright
 set autoread
-set spell
+set nospell
 set spelllang=en_us
 set wildmode=longest,list
 if exists('&emoji')
