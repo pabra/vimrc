@@ -27,7 +27,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'ervandew/supertab'
-Plug 'valloric/youcompleteme'
+" only load/install youcompleteme if environment variable YCM is set
+if $YCM
+    Plug 'valloric/youcompleteme'
+endif
 Plug 'SirVer/ultisnips'
 Plug 'pangloss/vim-javascript'
 Plug 'henrik/vim-indexed-search'        " needs to be before visual strat search
