@@ -37,6 +37,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'matze/vim-move'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/simpylfold'
+Plug 'dhruvasagar/vim-table-mode'
 
 " filetypes
 Plug 'chr4/nginx.vim'
