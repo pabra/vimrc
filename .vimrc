@@ -116,7 +116,7 @@ syntax on
 
 let mapleader = " "
 
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:syntax sync fromstart<CR><C-l>
 nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>:SyntasticToggleMode<CR>
 nnoremap <silent> <leader>s :set spell!<CR>
 nnoremap <silent> <leader>h :10winc <<CR>
@@ -148,6 +148,13 @@ omap ö [
 omap ä ]
 xmap ö [
 xmap ä ]
+
+nmap ]g <Plug>GitGutterNextHunk
+nmap [g <Plug>GitGutterPrevHunk
+nmap ]c :cnext<CR>
+nmap [c :cprevious<CR>
+nmap ]l :lnext<CR>
+nmap [l :lprevious<CR>
 
 " indexed-search
 let g:indexed_search_line_info = 1
