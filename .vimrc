@@ -156,6 +156,10 @@ nmap [c :cprevious<CR>
 nmap ]l :lnext<CR>
 nmap [l :lprevious<CR>
 
+" YouCompleteMe
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
 " indexed-search
 let g:indexed_search_line_info = 1
 let g:indexed_search_shortmess = 1
