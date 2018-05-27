@@ -72,6 +72,20 @@ function! AppendFileType()
     endif
 endfunction
 
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()
+    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind if NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+    if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+        NERDTreeFind
+        wincmd p
+    endif
+endfunction
+
 set number relativenumber
 set nowrap
 set smartindent
@@ -108,6 +122,7 @@ let g:vue_disable_pre_processors=1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWinEnter * :call SyncTree()
 autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost * :call AppendFileType()
 autocmd QuickFixCmdPost *grep* cwindow
