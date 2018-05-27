@@ -155,6 +155,8 @@ nmap ]c :cnext<CR>
 nmap [c :cprevious<CR>
 nmap ]l :lnext<CR>
 nmap [l :lprevious<CR>
+nmap ]b :bnext<CR>
+nmap [b :bprevious<CR>
 
 " YouCompleteMe
 let g:ycm_complete_in_comments = 1
