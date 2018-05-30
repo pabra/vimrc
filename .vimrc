@@ -141,6 +141,7 @@ nnoremap <silent> <leader>k :10winc -<CR>
 nnoremap <silent> <leader>dg :diffget<CR>
 nnoremap <silent> <leader>dp :diffput<CR>
 nnoremap <leader>p :call PullVimrc()<CR>
+nnoremap Y y$
 
 inoremap <silent>jk <Esc>
 
