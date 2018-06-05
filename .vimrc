@@ -134,7 +134,7 @@ syntax on
 let mapleader = " "
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:syntax sync fromstart<CR><C-l>
-nnoremap <silent> <F2> :set invnumber invrelativenumber<CR>:GitGutterToggle<CR>:SyntasticToggleMode<CR>
+nnoremap <silent> <F2> :set invnumber<CR>:GitGutterToggle<CR>:SyntasticToggleMode<CR>
 nnoremap <silent> <leader>s :set spell!<CR>
 nnoremap <silent> <leader>h :10winc <<CR>
 nnoremap <silent> <leader>l :10winc ><CR>
