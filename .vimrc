@@ -33,7 +33,7 @@ if $YCM
 endif
 Plug 'SirVer/ultisnips'
 Plug 'pangloss/vim-javascript'
-Plug 'henrik/vim-indexed-search'        " needs to be before visual strat search
+Plug 'henrik/vim-indexed-search'        " needs to be before visual star search
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-expand-region'
@@ -41,6 +41,7 @@ Plug 'matze/vim-move'
 Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/simpylfold'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'blueyed/vim-diminactive'
 
 " filetypes
 Plug 'chr4/nginx.vim'
@@ -86,7 +87,8 @@ function! SyncTree()
     endif
 endfunction
 
-set number relativenumber
+" set number relativenumber
+set number
 set nowrap
 set smartindent
 set tabstop=4
@@ -271,9 +273,14 @@ elseif &term=~'xterm'
     let &t_ZH="\e[3m"
     let &t_ZR="\e[23m"
     let g:gruvbox_contrast_dark = 'hard'
-    let g:gruvbox_guisp_fallback='bg'
+    let g:gruvbox_guisp_fallback = 'bg'
     let g:gruvbox_italic = 1
+    let g:gruvbox_sign_column = 'dark0_hard'
+    let g:gruvbox_number_column = 'dark0_hard'
     colorscheme gruvbox
+    highlight Normal ctermbg=Black guibg=Black
+    highlight CursorLine ctermbg=234 guibg=#161819
+    highlight ColorColumn ctermbg=234 guibg=#1d2021
 endif
 
 highlight ExtraWhitespace ctermbg=red guibg=red
