@@ -140,15 +140,15 @@ nnoremap <silent> <leader>h :10winc <<CR>
 nnoremap <silent> <leader>l :10winc ><CR>
 nnoremap <silent> <leader>j :10winc +<CR>
 nnoremap <silent> <leader>k :10winc -<CR>
-nnoremap <silent> <leader>dg :diffget<CR>
-nnoremap <silent> <leader>dp :diffput<CR>
+nnoremap <silent> <leader>dg :diffget<CR>:diffupdate<CR>
+nnoremap <silent> <leader>dp :diffput<CR>:diffupdate<CR>
 nnoremap <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
 inoremap <silent>jk <Esc>
 
-vnoremap <silent> <leader>dg :'<,'>diffget<CR>
-vnoremap <silent> <leader>dp :'<,'>diffput<CR>
+vnoremap <silent> <leader>dg :'<,'>diffget<CR>:diffupdate<CR>
+vnoremap <silent> <leader>dp :'<,'>diffput<CR>:diffupdate<CR>
 vnoremap <silent>> >gv
 vnoremap <silent>< <gv
 
@@ -169,8 +169,8 @@ xmap ä ]
 
 nmap ]g <Plug>GitGutterNextHunk
 nmap [g <Plug>GitGutterPrevHunk
-nmap ]c :cnext<CR>
-nmap [c :cprevious<CR>
+nmap ]c :cnext<CR>zv
+nmap [c :cprevious<CR>zv
 nmap ]l :lnext<CR>
 nmap [l :lprevious<CR>
 nmap ]b :bnext<CR>
