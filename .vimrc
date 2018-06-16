@@ -42,6 +42,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tmhedberg/simpylfold'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'blueyed/vim-diminactive'
+Plug 'heavenshell/vim-jsdoc'
 
 " filetypes
 Plug 'chr4/nginx.vim'
