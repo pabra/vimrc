@@ -143,6 +143,8 @@ nnoremap <silent> <leader>j :10winc +<CR>
 nnoremap <silent> <leader>k :10winc -<CR>
 nnoremap <silent> <leader>dg :diffget<CR>:diffupdate<CR>
 nnoremap <silent> <leader>dp :diffput<CR>:diffupdate<CR>
+nnoremap <silent> <leader>pb :CtrlPBuffer<CR>
+nnoremap <silent> <leader>pt :CtrlPBufTagAll<CR>
 nnoremap <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
