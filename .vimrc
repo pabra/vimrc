@@ -32,7 +32,6 @@ if $YCM
     Plug 'valloric/youcompleteme'
 endif
 Plug 'SirVer/ultisnips'
-Plug 'pangloss/vim-javascript'
 Plug 'henrik/vim-indexed-search'        " needs to be before visual star search
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
@@ -45,6 +44,7 @@ Plug 'blueyed/vim-diminactive'
 Plug 'heavenshell/vim-jsdoc'
 
 " filetypes
+Plug 'pangloss/vim-javascript'
 Plug 'chr4/nginx.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
