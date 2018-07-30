@@ -22,7 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
@@ -135,7 +135,7 @@ syntax on
 let mapleader = " "
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:syntax sync fromstart<CR><C-l>
-nnoremap <silent> <F2> :set invnumber<CR>:GitGutterToggle<CR>:SyntasticToggleMode<CR>
+nnoremap <silent> <F2> :set invnumber<CR>:SignifyToggle<CR>:SyntasticToggleMode<CR>
 nnoremap <silent> <leader>s :set spell!<CR>
 nnoremap <silent> <leader>h :10winc <<CR>
 nnoremap <silent> <leader>l :10winc ><CR>
@@ -179,6 +179,10 @@ nmap [l :lprevious<CR>
 nmap ]b :bnext<CR>
 nmap [b :bprevious<CR>
 
+" hunk jumping
+nmap <leader>gj <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
+
 " YouCompleteMe
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -198,10 +202,10 @@ set noshowmode
 " vim move
 let g:move_key_modifier = 'C'
 
-" git gutter
-nmap ghp <Plug>GitGutterPreviewHunk
-nmap ghs <Plug>GitGutterStageHunk
-nmap ghu <Plug>GitGutterUndoHunk
+" vcs/git gutter
+let g:signify_vcs_list = [ 'git' ]
+let g:signify_realtime = 1
+
 
 " localvimrc
 let g:localvimrc_name = [ '.lvimrc', '.local.vimrc', '.local.gitignore.vimrc' ]
