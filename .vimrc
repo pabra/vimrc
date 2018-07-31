@@ -204,7 +204,6 @@ let g:move_key_modifier = 'C'
 
 " vcs/git gutter
 let g:signify_vcs_list = [ 'git' ]
-let g:signify_realtime = 1
 
 
 " localvimrc
