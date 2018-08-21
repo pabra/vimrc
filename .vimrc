@@ -45,6 +45,7 @@ Plug 'heavenshell/vim-jsdoc'
 
 " filetypes
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'chr4/nginx.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
