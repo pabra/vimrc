@@ -134,7 +134,7 @@ syntax on
 
 let mapleader = " "
 
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:syntax sync fromstart<CR>:redraw!<CR>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:syntax sync fromstart<CR><C-l>
 nnoremap <silent> <F2> :set invnumber<CR>:SignifyToggle<CR>:SyntasticToggleMode<CR>
 nnoremap <silent> <leader>s :set spell!<CR>
 nnoremap <silent> <leader>w :set wrap!<CR>
@@ -201,7 +201,14 @@ set laststatus=2
 set noshowmode
 
 " vim move
-let g:move_key_modifier = 'C'
+let g:move_map_keys = 0
+" let g:move_key_modifier = 'C'
+vmap <C-j> <Plug>MoveBlockDown
+vmap <C-k> <Plug>MoveBlockUp
+vmap <C-h> <Plug>MoveBlockLeft
+vmap <C-l> <Plug>MoveBlockRight
+nmap <C-j> <Plug>MoveLineDown
+nmap <C-k> <Plug>MoveLineUp
 
 " vcs/git gutter
 let g:signify_vcs_list = [ 'git' ]
