@@ -151,6 +151,10 @@ nnoremap <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
 inoremap <silent>jk <Esc>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
 
 vnoremap <silent> <leader>dg :'<,'>diffget<CR>:diffupdate<CR>
 vnoremap <silent> <leader>dp :'<,'>diffput<CR>:diffupdate<CR>
@@ -184,6 +188,10 @@ nmap [b :bprevious<CR>
 " hunk jumping
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
+
+" auto-pairs
+" do not add mapping for <C-h>
+let g:AutoPairsMapCh = 0
 
 " YouCompleteMe
 let g:ycm_complete_in_comments = 1
