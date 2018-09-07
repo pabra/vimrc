@@ -104,6 +104,7 @@ set showcmd
 set hidden
 set scrolloff=10
 set history=2000
+set ttimeoutlen=50
 set splitbelow
 set splitright
 set autoread
