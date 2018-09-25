@@ -176,6 +176,12 @@ omap ö [
 omap ä ]
 xmap ö [
 xmap ä ]
+nmap öö [[
+nmap ää ]]
+omap öö [[
+omap ää ]]
+xmap öö [[
+xmap ää ]]
 
 nmap ]g <Plug>GitGutterNextHunk
 nmap [g <Plug>GitGutterPrevHunk
