@@ -196,6 +196,9 @@ nmap [b :bprevious<CR>
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 
+" jsdoc
+nmap <silent> <leader>j ?function<cr>:noh<cr><Plug>(jsdoc)
+
 " auto-pairs
 " do not add mapping for <C-h>
 let g:AutoPairsMapCh = 0
