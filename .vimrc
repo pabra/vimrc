@@ -196,8 +196,8 @@ nmap [b :bprevious<CR>
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 
-" jsdoc
-nmap <silent> <leader>j ?function<cr>:noh<cr><Plug>(jsdoc)
+" jsdoc (leader j already used for window grow height)
+" nmap <silent> <leader>j ?function<cr>:noh<cr><Plug>(jsdoc)
 
 " auto-pairs
 " do not add mapping for <C-h>
