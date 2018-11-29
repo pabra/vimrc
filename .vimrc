@@ -228,6 +228,11 @@ let g:lightline = {
     \       'right': [ [ 'lineinfo' ],
     \                  [ 'percent' ],
     \                  [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \   },
+    \   'inactive': {
+    \       'left': [ [ 'relativepath' ] ],
+    \       'right': [ [ 'lineinfo' ],
+    \                  [ 'percent' ] ]
     \   }
     \ }
 
