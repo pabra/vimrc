@@ -219,6 +219,18 @@ let g:SimpylFold_fold_docstring = 0
 set laststatus=2
 set noshowmode
 
+" lightline (status bar)
+let g:lightline = {
+    \ 'colorscheme': 'powerline',
+    \   'active': {
+    \       'left': [ [ 'mode', 'paste' ],
+    \                 [ 'readonly', 'relativepath', 'modified' ] ],
+    \       'right': [ [ 'lineinfo' ],
+    \                  [ 'percent' ],
+    \                  [ 'fileformat', 'fileencoding', 'filetype' ] ]
+    \   }
+    \ }
+
 " vim move
 let g:move_map_keys = 0
 " let g:move_key_modifier = 'C'
