@@ -46,6 +46,7 @@ Plug 'heavenshell/vim-jsdoc'
 " filetypes
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
+Plug 'quramy/tsuquyomi'  " tsserver client
 Plug 'chr4/nginx.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
@@ -267,6 +268,11 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" tsuquyomi with syntastic
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+let g:syntastic_vue_checkers = ['tsuquyomi']
 
 " nerdtree
 let g:NERDTreeShowHidden = 1
