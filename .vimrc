@@ -42,6 +42,7 @@ Plug 'tmhedberg/simpylfold'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'blueyed/vim-diminactive'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'machakann/vim-highlightedyank'
 
 " filetypes
 Plug 'pangloss/vim-javascript'
@@ -199,6 +200,11 @@ nmap <leader>gk <plug>(signify-prev-hunk)
 
 " jsdoc (leader j already used for window grow height)
 " nmap <silent> <leader>j ?function<cr>:noh<cr><Plug>(jsdoc)
+
+" in vim version < 8 remap y key
+if !exists('##TextYankPost')
+  map y <Plug>(highlightedyank)
+endif
 
 " auto-pairs
 " do not add mapping for <C-h>
