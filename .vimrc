@@ -185,18 +185,14 @@ omap ää ]]
 xmap öö [[
 xmap ää ]]
 
-nmap ]g <Plug>GitGutterNextHunk
-nmap [g <Plug>GitGutterPrevHunk
+nmap ]g <plug>(signify-next-hunk)
+nmap [g <plug>(signify-prev-hunk)
 nmap ]c :cnext<CR>zv
 nmap [c :cprevious<CR>zv
 nmap ]l :lnext<CR>
 nmap [l :lprevious<CR>
 nmap ]b :bnext<CR>
 nmap [b :bprevious<CR>
-
-" hunk jumping
-nmap <leader>gj <plug>(signify-next-hunk)
-nmap <leader>gk <plug>(signify-prev-hunk)
 
 " jsdoc (leader j already used for window grow height)
 " nmap <silent> <leader>j ?function<cr>:noh<cr><Plug>(jsdoc)
