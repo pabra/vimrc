@@ -311,6 +311,12 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+if has("autocmd")
+  let black_pipeline  = "black --fast --skip-string-normalization --quiet"
+  let black_pipeline .= " -"    " read from stdin
+  autocmd FileType python let &l:formatprg=black_pipeline
+endif
+
 set background=dark
 
 if &term=~'linux'
