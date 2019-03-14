@@ -170,6 +170,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 nmap <leader>t :TagbarToggle<CR>
+nmap <leader>g :YcmCompleter GoTo<CR>
+nmap <leader>r :YcmCompleter GoToReferences<CR>
+nmap <leader>d :YcmCompleter GetDoc<CR>
 
 " better previous/next mappings
 nmap ö [
