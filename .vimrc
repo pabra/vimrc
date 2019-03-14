@@ -153,6 +153,14 @@ nnoremap <silent> <leader>pt :CtrlPBufTagAll<CR>
 nnoremap <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
+" YouCompleteMe maps
+nnoremap <leader>gg :YcmCompleter GoTo<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gD :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>Gd :YcmCompleter GetDoc<CR>
+nnoremap <leader>Gt :YcmCompleter GetType<CR>
+
 inoremap <silent>jk <Esc>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
@@ -170,9 +178,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <leader>n :NERDTreeFind<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 nmap <leader>t :TagbarToggle<CR>
-nmap <leader>g :YcmCompleter GoTo<CR>
-nmap <leader>r :YcmCompleter GoToReferences<CR>
-nmap <leader>d :YcmCompleter GetDoc<CR>
 
 " better previous/next mappings
 nmap ö [
