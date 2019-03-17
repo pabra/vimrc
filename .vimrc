@@ -53,6 +53,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'posva/vim-vue'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-git'
 
 " theme
