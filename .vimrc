@@ -43,11 +43,12 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'blueyed/vim-diminactive'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'machakann/vim-highlightedyank'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " filetypes
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'quramy/tsuquyomi'  " tsserver client
+" Plug 'quramy/tsuquyomi'  " tsserver client
 Plug 'chr4/nginx.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
@@ -216,6 +217,15 @@ endif
 " auto-pairs
 " do not add mapping for <C-h>
 let g:AutoPairsMapCh = 0
+
+" prettier
+let g:prettier#exec_cmd_async = 1
+" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
+let g:prettier#quickfix_auto_focus = 0
+let g:prettier#autoformat = 0
+" autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " YouCompleteMe
 let g:ycm_complete_in_comments = 1
