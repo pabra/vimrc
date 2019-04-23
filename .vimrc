@@ -293,10 +293,23 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " tsuquyomi with syntastic
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_disable_default_mappings = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
-let g:syntastic_vue_checkers = ['tsuquyomi']
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:tsuquyomi_disable_default_mappings = 1
+" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
+" let g:syntastic_vue_checkers = ['tsuquyomi']
+let g:syntastic_typescript_checkers = ['tsc', 'tslint'] " You shouldn't use 'tsc' checker.
+" let g:syntastic_typescript_checkers = ['tslint'] " You shouldn't use 'tsc' checker.
+autocmd Filetype typescript call SetTypescriptOptions()
+function SetTypescriptOptions()
+    if executable('node_modules/.bin/tsc')
+        let b:syntastic_typescript_tsc_exec = 'node_modules/.bin/tsc'
+    endif
+    " let s:tslint_path = system('PATH=$(npm bin):$PATH && which tslint')
+    " let b:syntastic_typescript_tslint_exec = substitute(s:tslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+    if executable('node_modules/.bin/tslint')
+        let b:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
+    endif
+endfunction
 
 " nerdtree
 let g:NERDTreeShowHidden = 1
