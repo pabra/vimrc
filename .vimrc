@@ -312,7 +312,6 @@ function SetTypescriptOptions()
 endfunction
 
 " nerdtree
-let g:NERDTreeAutoCenter = 0
 let g:NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\.pyc$']
 
