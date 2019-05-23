@@ -164,6 +164,7 @@ nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gD :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>Gd :YcmCompleter GetDoc<CR>
 nnoremap <leader>Gt :YcmCompleter GetType<CR>
+nnoremap <leader>f :YcmCompleter FixIt<CR>
 
 inoremap <silent>jk <Esc>
 inoremap <C-h> <Left>
