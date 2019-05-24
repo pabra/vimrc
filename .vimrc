@@ -47,14 +47,15 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " filetypes
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'quramy/tsuquyomi'  " tsserver client
 Plug 'chr4/nginx.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'digitaltoad/vim-pug'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'posva/vim-vue'
-Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-git'
 
 " theme
