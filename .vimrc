@@ -67,7 +67,7 @@ Plug 'morhetz/gruvbox'
 call plug#end()
 
 function! PullVimrc()
-    !git --git-dir=$(dirname $(readlink -f ~/.vimrc))/.git --work-tree=$(dirname $(readlink -f ~/.vimrc)) pull
+    !git --git-dir=$(dirname $(readlink ~/.vimrc))/.git --work-tree=$(dirname $(readlink ~/.vimrc)) pull
     source $MYVIMRC
     PlugUpgrade
     PlugClean
