@@ -300,21 +300,26 @@ set statusline+=%*
 " let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
 " let g:syntastic_vue_checkers = ['tsuquyomi']
 let g:syntastic_typescript_checkers = ['tsc', 'eslint', 'tslint'] " You shouldn't use 'tsc' checker.
+let g:syntastic_typescripttsx_checkers = g:syntastic_typescript_checkers
 " let g:syntastic_typescript_checkers = ['tslint'] " You shouldn't use 'tsc' checker.
 autocmd Filetype typescript call SetTypescriptOptions()
+autocmd Filetype typescript.tsx call SetTypescriptOptions()
 function SetTypescriptOptions()
     if executable('node_modules/.bin/tsc')
         let b:syntastic_typescript_tsc_exec = 'node_modules/.bin/tsc'
+        let b:syntastic_typescripttsx_tsc_exec = b:syntastic_typescript_tsc_exec
     endif
 
     if executable('node_modules/.bin/eslint')
         let b:syntastic_typescript_eslint_exec = 'node_modules/.bin/eslint'
+        let b:syntastic_typescripttsx_eslint_exec = b:syntastic_typescript_eslint_exec
     endif
 
     " let s:tslint_path = system('PATH=$(npm bin):$PATH && which tslint')
     " let b:syntastic_typescript_tslint_exec = substitute(s:tslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
     if executable('node_modules/.bin/tslint')
         let b:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
+        let b:syntastic_typescripttsx_tslint_exec = b:syntastic_typescript_tslint_exec
     endif
 endfunction
 
