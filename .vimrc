@@ -343,6 +343,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
+autocmd Filetype javascript call SetJavascriptOptions()
+function SetJavascriptOptions()
+    if executable('node_modules/.bin/eslint')
+        let b:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
+    endif
+endfunction
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
