@@ -22,10 +22,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 " only load/install youcompleteme if environment variable YCM is set
 if $YCM
@@ -203,8 +205,10 @@ nmap ]g <plug>(signify-next-hunk)
 nmap [g <plug>(signify-prev-hunk)
 nmap ]c :cnext<CR>zv
 nmap [c :cprevious<CR>zv
-nmap ]l :lnext<CR>
-nmap [l :lprevious<CR>
+" nmap ]l :lnext<CR>
+" nmap [l :lprevious<CR>
+nmap ]l <Plug>(ale_next_wrap)
+nmap [l <Plug>(ale_previous_wrap)
 nmap ]b :bnext<CR>
 nmap [b :bprevious<CR>
 
@@ -246,21 +250,37 @@ set laststatus=2
 set noshowmode
 
 " lightline (status bar)
-let g:lightline = {
-    \ 'colorscheme': 'powerline',
-    \   'active': {
+let g:lightline = {}
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
+let g:lightline.colorscheme = 'powerline'
+
+let g:lightline.active = {
     \       'left': [ [ 'mode', 'paste' ],
     \                 [ 'readonly', 'relativepath', 'modified' ] ],
     \       'right': [ [ 'lineinfo' ],
     \                  [ 'percent' ],
-    \                  [ 'fileformat', 'fileencoding', 'filetype' ] ]
-    \   },
-    \   'inactive': {
+    \                  [ 'fileformat', 'fileencoding', 'filetype' ],
+    \                  [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], ]
+    \   }
+
+let g:lightline.inactive = {
     \       'left': [ [ 'relativepath' ] ],
     \       'right': [ [ 'lineinfo' ],
     \                  [ 'percent' ] ]
     \   }
-    \ }
 
 " vim move
 let g:move_map_keys = 0
@@ -291,7 +311,8 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " sytastic
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline=%{LinterStatus()}
 set statusline+=%*
 
 " tsuquyomi with syntastic
@@ -299,29 +320,29 @@ set statusline+=%*
 " let g:tsuquyomi_disable_default_mappings = 1
 " let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
 " let g:syntastic_vue_checkers = ['tsuquyomi']
-let g:syntastic_typescript_checkers = ['tsc', 'eslint', 'tslint'] " You shouldn't use 'tsc' checker.
-let g:syntastic_typescripttsx_checkers = g:syntastic_typescript_checkers
-" let g:syntastic_typescript_checkers = ['tslint'] " You shouldn't use 'tsc' checker.
-autocmd Filetype typescript call SetTypescriptOptions()
-autocmd Filetype typescript.tsx call SetTypescriptOptions()
-function SetTypescriptOptions()
-    if executable('node_modules/.bin/tsc')
-        let b:syntastic_typescript_tsc_exec = 'node_modules/.bin/tsc'
-        let b:syntastic_typescripttsx_tsc_exec = b:syntastic_typescript_tsc_exec
-    endif
-
-    if executable('node_modules/.bin/eslint')
-        let b:syntastic_typescript_eslint_exec = 'node_modules/.bin/eslint'
-        let b:syntastic_typescripttsx_eslint_exec = b:syntastic_typescript_eslint_exec
-    endif
-
-    " let s:tslint_path = system('PATH=$(npm bin):$PATH && which tslint')
-    " let b:syntastic_typescript_tslint_exec = substitute(s:tslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-    if executable('node_modules/.bin/tslint')
-        let b:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
-        let b:syntastic_typescripttsx_tslint_exec = b:syntastic_typescript_tslint_exec
-    endif
-endfunction
+" let g:syntastic_typescript_checkers = ['tsc', 'eslint', 'tslint'] " You shouldn't use 'tsc' checker.
+" let g:syntastic_typescripttsx_checkers = g:syntastic_typescript_checkers
+" " let g:syntastic_typescript_checkers = ['tslint'] " You shouldn't use 'tsc' checker.
+" autocmd Filetype typescript call SetTypescriptOptions()
+" autocmd Filetype typescript.tsx call SetTypescriptOptions()
+" function SetTypescriptOptions()
+"     if executable('node_modules/.bin/tsc')
+"         let b:syntastic_typescript_tsc_exec = 'node_modules/.bin/tsc'
+"         let b:syntastic_typescripttsx_tsc_exec = b:syntastic_typescript_tsc_exec
+"     endif
+"
+"     if executable('node_modules/.bin/eslint')
+"         let b:syntastic_typescript_eslint_exec = 'node_modules/.bin/eslint'
+"         let b:syntastic_typescripttsx_eslint_exec = b:syntastic_typescript_eslint_exec
+"     endif
+"
+"     " let s:tslint_path = system('PATH=$(npm bin):$PATH && which tslint')
+"     " let b:syntastic_typescript_tslint_exec = substitute(s:tslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+"     if executable('node_modules/.bin/tslint')
+"         let b:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
+"         let b:syntastic_typescripttsx_tslint_exec = b:syntastic_typescript_tslint_exec
+"     endif
+" endfunction
 
 " nerdtree
 let g:NERDTreeShowHidden = 1
@@ -338,17 +359,23 @@ let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit = 'vertical'
 
 " syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['eslint']
-autocmd Filetype javascript call SetJavascriptOptions()
-function SetJavascriptOptions()
-    if executable('node_modules/.bin/eslint')
-        let b:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
-    endif
-endfunction
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers=['eslint']
+" autocmd Filetype javascript call SetJavascriptOptions()
+" function SetJavascriptOptions()
+"     if executable('node_modules/.bin/eslint')
+"         let b:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
+"     endif
+" endfunction
+
+" ale
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 0
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
