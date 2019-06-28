@@ -30,8 +30,15 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 " only load/install youcompleteme if environment variable YCM is set
-if $YCM
-    Plug 'valloric/youcompleteme'
+" if $YCM
+"     Plug 'valloric/youcompleteme'
+" endif
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'SirVer/ultisnips'
 Plug 'henrik/vim-indexed-search'        " needs to be before visual star search
@@ -161,13 +168,16 @@ nnoremap <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
 " YouCompleteMe maps
-nnoremap <leader>gg :YcmCompleter GoTo<CR>
-nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gD :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>Gd :YcmCompleter GetDoc<CR>
-nnoremap <leader>Gt :YcmCompleter GetType<CR>
-nnoremap <leader>f :YcmCompleter FixIt<CR>
+" nnoremap <leader>gg :YcmCompleter GoTo<CR>
+" nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+" nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+" nnoremap <leader>gD :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>Gd :YcmCompleter GetDoc<CR>
+" nnoremap <leader>Gt :YcmCompleter GetType<CR>
+" nnoremap <leader>f :YcmCompleter FixIt<CR>
+
+" ale
+nnoremap <leader>ah :ALEHover<CR>
 
 inoremap <silent>jk <Esc>
 inoremap <C-h> <Left>
@@ -234,8 +244,11 @@ let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " YouCompleteMe
-let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+" deoplate
+let g:deoplete#enable_at_startup = 1
 
 " indexed-search
 let g:indexed_search_line_info = 1
@@ -376,6 +389,8 @@ let g:ale_set_loclist = 1
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 0
+let g:ale_completion_enabled = 1
+" set omnifunc=ale#completion#OmniFunc
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
