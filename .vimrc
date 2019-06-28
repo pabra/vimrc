@@ -36,6 +36,8 @@ Plug 'ervandew/supertab'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
+  " pacman -S python-greenlet python-pip
+  " pip3 install --user pynvim
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
@@ -178,6 +180,10 @@ nnoremap Y y$
 
 " ale
 nnoremap <leader>ah :ALEHover<CR>
+nnoremap <leader>ad :ALEGoToDefinition<CR>
+nnoremap <leader>at :ALEGoToTypeDefinition<CR>
+" nnoremap <leader>af :ALEFix<CR>
+nnoremap <leader>af <Plug>(ale_fix)
 
 inoremap <silent>jk <Esc>
 inoremap <C-h> <Left>
@@ -391,6 +397,11 @@ let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 0
 let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'typescript': ['eslint', 'tslint'],
+\   'typescripttsx': ['eslint', 'tslint'],
+\}
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
