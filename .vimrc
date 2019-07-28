@@ -127,7 +127,7 @@ set autoread
 set nospell
 set spelllang=en_us
 set wildmode=longest,list
-set virtualedit=all
+" set virtualedit=all
 set nostartofline
 if exists('&emoji')
     set noemoji
