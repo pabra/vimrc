@@ -57,7 +57,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " filetypes
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 " Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'quramy/tsuquyomi'  " tsserver client
