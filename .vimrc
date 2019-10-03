@@ -241,7 +241,9 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " deoplate
-let g:deoplete#enable_at_startup = 1
+if v:version >= 800
+    let g:deoplete#enable_at_startup = 1
+endif
 
 " indexed-search
 let g:indexed_search_line_info = 1
