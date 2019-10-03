@@ -26,13 +26,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-" Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
-" Plug 'ervandew/supertab'
-" only load/install youcompleteme if environment variable YCM is set
-" if $YCM
-"     Plug 'valloric/youcompleteme'
-" endif
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -44,7 +38,6 @@ else
 endif
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-" Plug 'SirVer/ultisnips'
 Plug 'henrik/vim-indexed-search'        " needs to be before visual star search
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
@@ -158,15 +151,6 @@ nnoremap <silent> <leader>m :NERDTreeToggle<CR>
 nnoremap <silent> <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
-" YouCompleteMe maps
-" nnoremap <leader>gg :YcmCompleter GoTo<CR>
-" nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-" nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-" nnoremap <leader>gD :YcmCompleter GoToDefinition<CR>
-" nnoremap <leader>Gd :YcmCompleter GetDoc<CR>
-" nnoremap <leader>Gt :YcmCompleter GetType<CR>
-" nnoremap <leader>f :YcmCompleter FixIt<CR>
-
 " ale
 nnoremap <leader>ah :ALEHover<CR>
 nnoremap <leader>ad :ALEGoToDefinition<CR>
@@ -235,10 +219,6 @@ let g:prettier#quickfix_auto_focus = 0
 let g:prettier#autoformat = 0
 " autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-" YouCompleteMe
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " deoplate
 if v:version >= 800
@@ -356,35 +336,6 @@ set statusline+=%#warningmsg#
 set statusline=%{LinterStatus()}
 set statusline+=%*
 
-" tsuquyomi with syntastic
-" let g:tsuquyomi_disable_quickfix = 1
-" let g:tsuquyomi_disable_default_mappings = 1
-" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint'] " You shouldn't use 'tsc' checker.
-" let g:syntastic_vue_checkers = ['tsuquyomi']
-" let g:syntastic_typescript_checkers = ['tsc', 'eslint', 'tslint'] " You shouldn't use 'tsc' checker.
-" let g:syntastic_typescripttsx_checkers = g:syntastic_typescript_checkers
-" " let g:syntastic_typescript_checkers = ['tslint'] " You shouldn't use 'tsc' checker.
-" autocmd Filetype typescript call SetTypescriptOptions()
-" autocmd Filetype typescript.tsx call SetTypescriptOptions()
-" function SetTypescriptOptions()
-"     if executable('node_modules/.bin/tsc')
-"         let b:syntastic_typescript_tsc_exec = 'node_modules/.bin/tsc'
-"         let b:syntastic_typescripttsx_tsc_exec = b:syntastic_typescript_tsc_exec
-"     endif
-"
-"     if executable('node_modules/.bin/eslint')
-"         let b:syntastic_typescript_eslint_exec = 'node_modules/.bin/eslint'
-"         let b:syntastic_typescripttsx_eslint_exec = b:syntastic_typescript_eslint_exec
-"     endif
-"
-"     " let s:tslint_path = system('PATH=$(npm bin):$PATH && which tslint')
-"     " let b:syntastic_typescript_tslint_exec = substitute(s:tslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-"     if executable('node_modules/.bin/tslint')
-"         let b:syntastic_typescript_tslint_exec = 'node_modules/.bin/tslint'
-"         let b:syntastic_typescripttsx_tslint_exec = b:syntastic_typescript_tslint_exec
-"     endif
-" endfunction
-
 " nerdtree
 let g:NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\.pyc$']
@@ -394,23 +345,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'left'
-"
-" " UltiSnips
-" let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-" let g:UltiSnipsEditSplit = 'vertical'
 
-" syntastic
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_javascript_checkers=['eslint']
-" autocmd Filetype javascript call SetJavascriptOptions()
-" function SetJavascriptOptions()
-"     if executable('node_modules/.bin/eslint')
-"         let b:syntastic_javascript_eslint_exec = 'node_modules/.bin/eslint'
-"     endif
-" endfunction
 
 " ale
 let g:ale_set_loclist = 1
@@ -424,16 +359,6 @@ let g:ale_fixers = {
 \   'typescript': ['eslint', 'tslint'],
 \   'typescripttsx': ['eslint', 'tslint'],
 \}
-"
-" " make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
-"
-" " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 if has("autocmd")
   let black_pipeline  = "black --fast --skip-string-normalization --quiet"
