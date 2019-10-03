@@ -91,20 +91,6 @@ function! AppendFileType()
     endif
 endfunction
 
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind if NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-    if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-        NERDTreeFind
-        wincmd p
-    endif
-endfunction
-
 " set number relativenumber
 set number
 set nowrap
@@ -145,7 +131,6 @@ let g:vue_disable_pre_processors=1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWinEnter * :call SyncTree()
 autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost * :call AppendFileType()
 autocmd QuickFixCmdPost *grep* cwindow
@@ -166,6 +151,8 @@ nnoremap <silent> <leader>dg :diffget<CR>:diffupdate<CR>
 nnoremap <silent> <leader>dp :diffput<CR>:diffupdate<CR>
 nnoremap <silent> <leader>pb :CtrlPBuffer<CR>
 nnoremap <silent> <leader>pt :CtrlPBufTagAll<CR>
+nnoremap <silent> <leader>n :NERDTreeFind<CR>
+nnoremap <silent> <leader>m :NERDTreeToggle<CR>
 nnoremap <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
@@ -199,8 +186,6 @@ vnoremap <silent>< <gv
 " map %% in command mode to be expanded to the path of current buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-nmap <leader>n :NERDTreeFind<CR>
-nmap <leader>m :NERDTreeToggle<CR>
 nmap <leader>t :TagbarToggle<CR>
 
 " better previous/next mappings
