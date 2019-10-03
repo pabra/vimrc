@@ -28,7 +28,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 " only load/install youcompleteme if environment variable YCM is set
 " if $YCM
 "     Plug 'valloric/youcompleteme'
@@ -155,7 +155,7 @@ nnoremap <silent> <leader>pb :CtrlPBuffer<CR>
 nnoremap <silent> <leader>pt :CtrlPBufTagAll<CR>
 nnoremap <silent> <leader>n :NERDTreeFind<CR>
 nnoremap <silent> <leader>m :NERDTreeToggle<CR>
-nnoremap <leader>p :call PullVimrc()<CR>
+nnoremap <silent> <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
 
 " YouCompleteMe maps
@@ -420,16 +420,16 @@ let g:ale_fixers = {
 \   'typescript': ['eslint', 'tslint'],
 \   'typescripttsx': ['eslint', 'tslint'],
 \}
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"
+" " make YCM compatible with UltiSnips (using supertab)
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
+"
+" " better key bindings for UltiSnipsExpandTrigger
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 if has("autocmd")
   let black_pipeline  = "black --fast --skip-string-normalization --quiet"
