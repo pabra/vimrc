@@ -9,8 +9,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 " new line
 
-if empty(glob('~/.vim/UltiSnips'))
-    silent !ln -sf $(dirname $(readlink ~/.vimrc))/UltiSnips ~/.vim/UltiSnips
+if empty(glob('~/.vim/snippets'))
+    silent !ln -sf $(dirname $(readlink ~/.vimrc))/snippets ~/.vim/snippets
 endif
 
 call plug#begin()
@@ -42,7 +42,9 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'SirVer/ultisnips'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+" Plug 'SirVer/ultisnips'
 Plug 'henrik/vim-indexed-search'        " needs to be before visual star search
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'editorconfig/editorconfig-vim'
@@ -357,10 +359,10 @@ let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'left'
-
-" UltiSnips
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-let g:UltiSnipsEditSplit = 'vertical'
+"
+" " UltiSnips
+" let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+" let g:UltiSnipsEditSplit = 'vertical'
 
 " syntastic
 " let g:syntastic_always_populate_loc_list = 1

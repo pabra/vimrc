@@ -1,7 +1,0 @@
-snippet syspr
-import sys,pprint;print('${1:print}:\n', pprint.pformat($1), '\n', file=sys.stderr) # TODO: remove DEBUG
-endsnippet
-
-snippet rdebug
-import sys;print("RUN: devpyrat_pdb", out=sys.stderr);import ripdb;ripdb.set_trace() # TODO: remove DEBUG
-endsnippet
