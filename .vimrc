@@ -49,6 +49,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'blueyed/vim-diminactive'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'machakann/vim-highlightedyank'
+Plug 'psf/black'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " filetypes
@@ -349,17 +350,19 @@ let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 0
 let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
+let g:ale_python_auto_pipenv = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'typescript': ['eslint', 'tslint'],
 \   'typescripttsx': ['eslint', 'tslint'],
 \}
 
-if has("autocmd")
-  let black_pipeline  = "black --fast --skip-string-normalization --quiet"
-  let black_pipeline .= " -"    " read from stdin
-  autocmd FileType python let &l:formatprg=black_pipeline
-endif
+autocmd BufWritePre *.py execute ':Black'
+" if has("autocmd")
+"   let black_pipeline  = "black --fast --skip-string-normalization --quiet"
+"   let black_pipeline .= " -"    " read from stdin
+"   autocmd FileType python let &l:formatprg=black_pipeline
+" endif
 
 set background=dark
 
