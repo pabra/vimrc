@@ -27,14 +27,19 @@ Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  " pacman -S python-greenlet python-pip
-  " pip3 install --user pynvim
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+if $IDE
+    if has('nvim')
+      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+      " pacman -S python-greenlet python-pip
+      " pip3 install --user pynvim
+      Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+
+    Plug 'psf/black'
+    Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 endif
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -49,8 +54,6 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'blueyed/vim-diminactive'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'machakann/vim-highlightedyank'
-Plug 'psf/black'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " filetypes
 " Plug 'pangloss/vim-javascript'
@@ -212,19 +215,22 @@ endif
 " do not add mapping for <C-h>
 let g:AutoPairsMapCh = 0
 
-" prettier
-let g:prettier#exec_cmd_async = 1
-" when running at every change you may want to disable quickfix
-let g:prettier#quickfix_enabled = 0
-let g:prettier#quickfix_auto_focus = 0
-let g:prettier#autoformat = 0
-" autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yml,*.yaml,*.html PrettierAsync
+if $IDE
+    " prettier
+    let g:prettier#exec_cmd_async = 1
+    " when running at every change you may want to disable quickfix
+    let g:prettier#quickfix_enabled = 0
+    let g:prettier#quickfix_auto_focus = 0
+    let g:prettier#autoformat = 0
+    " autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yml,*.yaml,*.html PrettierAsync
 
-" deoplate
-if v:version >= 800
-    let g:deoplete#enable_at_startup = 1
+    " deoplate
+    if v:version >= 800
+        let g:deoplete#enable_at_startup = 1
+    endif
 endif
+
 " inoremap <silent><expr> <TAB>
 "             \ pumvisible() ? "\<C-n>" :
 "             \ <SID>check_back_space() ? "\<TAB>" :
@@ -357,12 +363,14 @@ let g:ale_fixers = {
 \   'typescripttsx': ['eslint', 'tslint'],
 \}
 
-autocmd BufWritePre *.py execute ':Black'
-" if has("autocmd")
-"   let black_pipeline  = "black --fast --skip-string-normalization --quiet"
-"   let black_pipeline .= " -"    " read from stdin
-"   autocmd FileType python let &l:formatprg=black_pipeline
-" endif
+if $IDE
+    autocmd BufWritePre *.py execute ':Black'
+    " if has("autocmd")
+    "   let black_pipeline  = "black --fast --skip-string-normalization --quiet"
+    "   let black_pipeline .= " -"    " read from stdin
+    "   autocmd FileType python let &l:formatprg=black_pipeline
+    " endif
+endif
 
 set background=dark
 
