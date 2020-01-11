@@ -159,8 +159,9 @@ nnoremap Y y$
 nnoremap <leader>ah :ALEHover<CR>
 nnoremap <leader>ad :ALEGoToDefinition<CR>
 nnoremap <leader>at :ALEGoToTypeDefinition<CR>
-" nnoremap <leader>af :ALEFix<CR>
-nnoremap <leader>af <Plug>(ale_fix)
+nnoremap <leader>af :ALERename<CR>
+nnoremap <leader>af :ALEFix<CR>
+" nnoremap <leader>af <Plug>(ale_fix)
 
 inoremap <silent>jk <Esc>
 inoremap <C-h> <Left>
