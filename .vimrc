@@ -54,6 +54,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'blueyed/vim-diminactive'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'machakann/vim-highlightedyank'
+Plug 'andys8/vim-elm-syntax'
 
 " filetypes
 " Plug 'pangloss/vim-javascript'
@@ -358,10 +359,12 @@ let g:ale_keep_list_window_open = 0
 let g:ale_completion_enabled = 1
 " set omnifunc=ale#completion#OmniFunc
 let g:ale_python_auto_pipenv = 1
+let g:ale_elm_ls_use_global = 0
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'typescript': ['eslint', 'tslint'],
 \   'typescripttsx': ['eslint', 'tslint'],
+\   'elm': ['elm-format'],
 \}
 
 if $IDE
@@ -371,6 +374,7 @@ if $IDE
     "   let black_pipeline .= " -"    " read from stdin
     "   autocmd FileType python let &l:formatprg=black_pipeline
     " endif
+    autocmd BufRead,BufNewFile *.elm let g:ale_fix_on_save = 1
 endif
 
 set background=dark
