@@ -135,6 +135,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufReadPost * :call AppendFileType()
 autocmd QuickFixCmdPost *grep* cwindow
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 filetype plugin on
 syntax on
 
@@ -365,6 +367,9 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'typescript': ['eslint', 'tslint'],
 \   'typescripttsx': ['eslint', 'tslint'],
+\   'typescriptreact': ['eslint', 'tslint'],
+\   'javascriptjsx': ['eslint', 'tslint'],
+\   'javascriptreact': ['eslint', 'tslint'],
 \   'elm': ['elm-format'],
 \}
 
