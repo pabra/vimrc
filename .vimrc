@@ -39,7 +39,7 @@ if $IDE
     endif
 
     Plug 'psf/black'
-    Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 endif
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
