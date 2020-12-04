@@ -27,6 +27,7 @@ Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
+Plug 'pearofducks/ansible-vim'
 if $IDE
     if has('nvim')
       Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
