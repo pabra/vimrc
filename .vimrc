@@ -387,11 +387,15 @@ endif
 
 set background=dark
 
+if &term == "alacritty"
+  let &term = "xterm-256color"
+endif
+
 if &term=~'linux'
     " console on linux
     colorscheme slate
     set nolist
-elseif &term=~'xterm'
+elseif &term=~'xterm' || &term=~'alacritty'
     " terminal running under X
     if exists('&termguicolors')
         set termguicolors
