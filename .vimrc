@@ -58,6 +58,7 @@ Plug 'blueyed/vim-diminactive'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andys8/vim-elm-syntax'
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
 " filetypes
 " Plug 'pangloss/vim-javascript'
@@ -361,6 +362,9 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'left'
 
+" shfmt
+let g:shfmt_extra_args = '-i 4 -p'
+let g:shfmt_fmt_on_save = 1
 
 " ale
 let g:ale_set_loclist = 1
