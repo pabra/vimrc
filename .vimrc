@@ -120,6 +120,8 @@ set wildmode=longest,list
 set backupcopy=yes
 " set virtualedit=all
 set nostartofline
+set modeline
+set modelines=5
 if exists('&emoji')
     set noemoji
 endif
