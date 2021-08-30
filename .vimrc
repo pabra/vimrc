@@ -146,6 +146,14 @@ autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 filetype plugin on
 syntax on
 
+if (&ft=='sh')
+    if getline(1) =~# '^#!.*/bin/bash'
+        let g:shfmt_extra_args = '-i 4 -ln bash'
+    else
+        let g:shfmt_extra_args = '-i 4 -p'
+    endif
+endif
+
 let mapleader = " "
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR>:syntax sync fromstart<CR><C-l>
@@ -365,7 +373,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'left'
 
 " shfmt
-let g:shfmt_extra_args = '-i 4 -p'
+" let g:shfmt_extra_args = '-i 4 -p'
 let g:shfmt_fmt_on_save = 1
 
 " ale
