@@ -178,6 +178,7 @@ nnoremap <leader>ah :ALEHover<CR>
 nnoremap <leader>ad :ALEGoToDefinition<CR>
 nnoremap <leader>at :ALEGoToTypeDefinition<CR>
 nnoremap <leader>ar :ALERename<CR>
+nnoremap <leader>au :ALEFindReferences<CR>
 nnoremap <leader>af :ALEFix<CR>
 " nnoremap <leader>af <Plug>(ale_fix)
 
