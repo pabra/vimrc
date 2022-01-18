@@ -143,6 +143,7 @@ autocmd BufReadPost * :call AppendFileType()
 autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 filetype plugin on
 syntax on
 
