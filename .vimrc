@@ -173,13 +173,16 @@ nnoremap <silent> <leader>n :NERDTreeFind<CR>
 nnoremap <silent> <leader>m :NERDTreeToggle<CR>
 nnoremap <silent> <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
+nnoremap <leader>gg :Ggrep -w <C-R><C-W><CR><CR>
+vnoremap <leader>gg "gy<CR>:Ggrep '<C-R>g'<CR><CR>
 
 " ale
 nnoremap <leader>ah :ALEHover<CR>
 nnoremap <leader>ad :ALEGoToDefinition<CR>
 nnoremap <leader>at :ALEGoToTypeDefinition<CR>
 nnoremap <leader>ar :ALERename<CR>
-nnoremap <leader>au :ALEFindReferences<CR>
+nnoremap <leader>au :ALEFindReferences -quickfix<CR>
+nnoremap <leader>uu :ALERepeatSelection<cr>
 nnoremap <leader>af :ALEFix<CR>
 " nnoremap <leader>af <Plug>(ale_fix)
 
