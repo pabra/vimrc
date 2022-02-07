@@ -59,6 +59,7 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andys8/vim-elm-syntax'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
+Plug 'rickhowe/diffchar.vim'
 
 " filetypes
 " Plug 'pangloss/vim-javascript'
