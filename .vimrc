@@ -193,8 +193,8 @@ inoremap <C-l> <Right>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
-vnoremap <silent> <leader>dg :'<,'>diffget<CR>:diffupdate<CR>
-vnoremap <silent> <leader>dp :'<,'>diffput<CR>:diffupdate<CR>
+vnoremap <silent> <leader>dg :diffget<CR>:diffupdate<CR>
+vnoremap <silent> <leader>dp :diffput<CR>:diffupdate<CR>
 vnoremap <silent>> >gv
 vnoremap <silent>< <gv
 
