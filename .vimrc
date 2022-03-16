@@ -174,6 +174,7 @@ nnoremap <silent> <leader>n :NERDTreeFind<CR>
 nnoremap <silent> <leader>m :NERDTreeToggle<CR>
 nnoremap <silent> <leader>p :call PullVimrc()<CR>
 nnoremap Y y$
+nnoremap <silent> <leader>gb :Git blame<CR>
 nnoremap <leader>gg :Ggrep -w <C-R><C-W><CR><CR>
 vnoremap <leader>gg "gy<CR>:Ggrep '<C-R>g'<CR><CR>
 
