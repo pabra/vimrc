@@ -186,6 +186,7 @@ nnoremap <leader>ar :ALERename<CR>
 nnoremap <leader>au :ALEFindReferences -quickfix<CR>
 nnoremap <leader>uu :ALERepeatSelection<cr>
 nnoremap <leader>af :ALEFix<CR>
+nnoremap <leader>as :ALEStopAllLSPs<CR>
 " nnoremap <leader>af <Plug>(ale_fix)
 
 inoremap <silent>jk <Esc>
