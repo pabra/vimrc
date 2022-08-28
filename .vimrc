@@ -302,7 +302,7 @@ let g:SimpylFold_fold_docstring = 0
 
 " status line
 set laststatus=2
-set noshowmode
+" set noshowmode
 
 " lightline (status bar)
 let g:lightline = {}
