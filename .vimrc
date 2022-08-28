@@ -189,7 +189,7 @@ nnoremap <leader>af :ALEFix<CR>
 nnoremap <leader>as :ALEStopAllLSPs<CR>
 " nnoremap <leader>af <Plug>(ale_fix)
 
-inoremap <silent>jk <Esc>
+" inoremap <silent>jk <Esc>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-j> <Down>
