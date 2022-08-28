@@ -55,7 +55,7 @@ Plug 'tmhedberg/simpylfold'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'gyim/vim-boxdraw'
 Plug 'blueyed/vim-diminactive'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'], 'do': 'make install' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'andys8/vim-elm-syntax'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
