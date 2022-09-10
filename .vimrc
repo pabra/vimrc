@@ -96,6 +96,18 @@ function! AppendFileType()
     endif
 endfunction
 
+function! SetShfmtArgs()
+    if (&ft=='sh')
+        if getline(1) =~# '^#!.*/bin/bash'
+            let g:shfmt_extra_args = '-i 4 -ln bash'
+        elseif getline(1) =~# '^#!.*/env bash'
+            let g:shfmt_extra_args = '-i 4 -ln bash'
+        else
+            let g:shfmt_extra_args = '-i 4 -p'
+        endif
+    endif
+endfunction
+
 " set number relativenumber
 set number
 set nowrap
@@ -145,16 +157,11 @@ autocmd QuickFixCmdPost *grep* cwindow
 autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd FileType sh :call SetShfmtArgs()
+autocmd BufEnter *.sh :call SetShfmtArgs()
+autocmd BufEnter *.bash :call SetShfmtArgs()
 filetype plugin on
 syntax on
-
-if (&ft=='sh')
-    if getline(1) =~# '^#!.*/bin/bash'
-        let g:shfmt_extra_args = '-i 4 -ln bash'
-    else
-        let g:shfmt_extra_args = '-i 4 -p'
-    endif
-endif
 
 let mapleader = " "
 
