@@ -3,3 +3,8 @@ alias clog
 options head
   window.console.log('${1:TARGET}:', $1); // TODO: remove DEBUG
 
+snippet debug-console-log2
+alias !!
+options head
+  window.console.log("!! ${1:TARGET}:", $1); // TODO: remove DEBUG
+
