@@ -1,11 +1,11 @@
-snippet debug in let block
+snippet debug-in-let-block
 alias !!!
   _ = Debug.log {- TODO: remove DEBUG -} "!! ${1:TARGET}" $1
 
-snippet debug in pipe
+snippet debug-in-pipe
 alias !!
   |> Debug.log {- TODO: remove DEBUG -} "!! ${1:TARGET}"
 
-snippet inspect type in pipe
+snippet inspect-type-in-pipe
 alias xx
   |> {- TODO: remove DEBUG -} (\x -> x)
