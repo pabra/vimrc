@@ -408,6 +408,7 @@ let g:ale_fixers = {
 \   'javascriptjsx': ['eslint', 'tslint'],
 \   'javascriptreact': ['eslint', 'tslint'],
 \   'elm': ['elm-format'],
+\   'go': ['gofmt'],
 \}
 
 if $IDE
