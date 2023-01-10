@@ -409,7 +409,9 @@ let g:ale_fixers = {
 \   'javascriptreact': ['eslint', 'tslint'],
 \   'elm': ['elm-format'],
 \   'go': ['gofmt'],
+\   'rust': ['rustfmt'],
 \}
+let g:ale_rust_rustfmt_options = '--edition 2021'
 
 if $IDE
     autocmd BufWritePre *.py execute ':Black'
