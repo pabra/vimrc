@@ -26,7 +26,8 @@ Plug 'maximbaz/lightline-ale'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+Plug 'dense-analysis/ale', {'commit': '9092af9ad6a5c93a759be571323ea1d0cafa8d6e'}
 Plug 'pearofducks/ansible-vim'
 if $IDE
     if has('nvim')
