@@ -411,6 +411,7 @@ let g:ale_fixers = {
 \   'go': ['gofmt'],
 \   'rust': ['rustfmt'],
 \}
+let g:ale_linters = { 'typescript': ['eslint', 'tsserver', 'typecheck'] }
 let g:ale_rust_rustfmt_options = '--edition 2021'
 
 if $IDE
