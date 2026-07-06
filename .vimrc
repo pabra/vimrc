@@ -40,7 +40,7 @@ if $IDE
     endif
 
     Plug 'psf/black'
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+    Plug 'prettier/vim-prettier', { 'do': 'npm install --omit=dev' }
 endif
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -121,7 +121,7 @@ set hlsearch
 set incsearch
 set showcmd
 set hidden
-set scrolloff=10
+" set scrolloff=10
 set history=2000
 set ttimeoutlen=50
 set splitbelow
