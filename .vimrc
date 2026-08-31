@@ -251,13 +251,13 @@ let g:AutoPairsMapCh = 0
 
 if $IDE
     " prettier
-    let g:prettier#exec_cmd_async = 1
+    let g:prettier#exec_cmd_async = 0
     " when running at every change you may want to disable quickfix
     let g:prettier#quickfix_enabled = 0
     let g:prettier#quickfix_auto_focus = 0
     let g:prettier#autoformat = 0
     " autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yml,*.yaml,*.html PrettierAsync
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yml,*.yaml,*.html Prettier
 
     " deoplate
     if v:version >= 800
