@@ -408,6 +408,7 @@ let g:ale_fixers = {
 \   'javascriptjsx': ['eslint', 'tslint'],
 \   'javascriptreact': ['eslint', 'tslint'],
 \   'elm': ['elm-format'],
+\   'roc': ['roc_format'],
 \   'go': ['gofmt'],
 \   'rust': ['rustfmt'],
 \}
@@ -422,6 +423,7 @@ if $IDE
     "   autocmd FileType python let &l:formatprg=black_pipeline
     " endif
     autocmd BufRead,BufNewFile *.elm let g:ale_fix_on_save = 1
+    autocmd BufRead,BufNewFile *.roc let g:ale_fix_on_save = 1
 endif
 
 set background=dark
