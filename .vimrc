@@ -189,6 +189,7 @@ vnoremap <leader>gg "gy<CR>:Ggrep '<C-R>g'<CR><CR>
 nnoremap <leader>ah :ALEHover<CR>
 nnoremap <leader>ad :ALEGoToDefinition<CR>
 nnoremap <leader>at :ALEGoToTypeDefinition<CR>
+nnoremap <leader>ai :ALEGoToImplementation<CR>
 nnoremap <leader>ar :ALERename<CR>
 nnoremap <leader>au :ALEFindReferences -quickfix<CR>
 nnoremap <leader>uu :ALERepeatSelection<cr>
